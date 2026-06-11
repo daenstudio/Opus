@@ -1,1 +1,510 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Opus Cowork – Coworking Space in Osthofen & Worms | Platz vormerken</title>
+<meta name="description" content="Coworking in Rheinhessen: Pilot-Space in Osthofen (100 qm, Gigabit-Internet, 10 Min vom Bahnhof), zweiter Standort in Worms in Planung. Jetzt unverbindlich Platz vormerken und mitentscheiden.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F3F5F0;
+    --ink:#152420;
+    --pine:#1E4D3E;
+    --leaf:#3E7C4F;
+    --signal:#F2C230;
+    --line:#D8DDD4;
+    --white:#FFFFFF;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{animation:none!important;transition:none!important}
+  }
+  body{
+    font-family:'Instrument Sans',system-ui,sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.6;
+    font-size:17px;
+  }
+  .wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+  .mono{font-family:'IBM Plex Mono',monospace;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}
 
+  /* ---------- Header ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(243,245,240,.92);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .logo{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.25rem;color:var(--ink);text-decoration:none}
+  .logo span{color:var(--leaf)}
+  .nav a.cta{
+    background:var(--ink);color:var(--white);text-decoration:none;
+    padding:10px 18px;border-radius:999px;font-weight:600;font-size:.92rem;
+    transition:background .2s;
+  }
+  .nav a.cta:hover{background:var(--pine)}
+  .nav a.cta:focus-visible,a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{
+    outline:3px solid var(--signal);outline-offset:2px;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{padding:80px 0 56px}
+  .eyebrow{
+    display:inline-block;background:var(--signal);color:var(--ink);
+    padding:5px 12px;border-radius:4px;font-weight:500;margin-bottom:22px;
+  }
+  h1{
+    font-family:'Bricolage Grotesque',sans-serif;font-weight:800;
+    font-size:clamp(2.3rem,5.4vw,4rem);line-height:1.05;letter-spacing:-.01em;
+    max-width:15ch;
+  }
+  h1 em{font-style:normal;color:var(--leaf)}
+  .hero p.lead{max-width:54ch;margin:24px 0 32px;font-size:1.12rem;color:#3C4A44}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+  .btn{
+    display:inline-block;text-decoration:none;font-weight:600;font-size:1rem;
+    padding:14px 26px;border-radius:999px;border:none;cursor:pointer;transition:transform .15s,background .2s;
+  }
+  .btn-primary{background:var(--pine);color:var(--white)}
+  .btn-primary:hover{background:var(--leaf);transform:translateY(-1px)}
+  .btn-ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+  .btn-ghost:hover{background:var(--ink);color:var(--white)}
+
+  /* ---------- Signature: S-Bahn-Linie ---------- */
+  .route{padding:48px 0 64px}
+  .route-card{
+    background:var(--ink);color:var(--paper);border-radius:18px;
+    padding:38px 34px 30px;overflow:hidden;
+  }
+  .route-card .mono{color:var(--signal);margin-bottom:26px;display:block}
+  .route-line{position:relative;margin:34px 0 8px}
+  .route-track{position:absolute;left:0;right:0;top:9px;height:4px;background:var(--leaf);border-radius:2px}
+  .route-stops{display:flex;justify-content:space-between;position:relative}
+  .stop{display:flex;flex-direction:column;align-items:center;gap:10px;flex:1;min-width:0}
+  .stop .dot{width:18px;height:18px;border-radius:50%;background:var(--paper);border:4px solid var(--leaf);z-index:1}
+  .stop.here .dot{background:var(--signal);border-color:var(--signal);width:22px;height:22px;margin-top:-2px}
+  .stop .name{font-weight:600;font-size:.95rem;text-align:center}
+  .stop.here .name{color:var(--signal);font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.05rem}
+  .stop .time{font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:#9DB3A8;text-align:center}
+  .route-foot{margin-top:26px;font-size:.95rem;color:#C4D1C9;text-align:center}
+  .route-foot strong{color:var(--signal)}
+
+  /* ---------- Sections ---------- */
+  section{padding:64px 0}
+  .sec-label{color:var(--leaf);margin-bottom:12px;display:block}
+  h2{
+    font-family:'Bricolage Grotesque',sans-serif;font-weight:700;
+    font-size:clamp(1.7rem,3.4vw,2.4rem);line-height:1.15;letter-spacing:-.01em;
+    max-width:24ch;margin-bottom:18px;
+  }
+  .sec-intro{max-width:58ch;color:#3C4A44;margin-bottom:40px}
+
+  /* ---------- Raum / Facts ---------- */
+  .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+  .fact{
+    background:var(--white);border:1px solid var(--line);border-radius:14px;
+    padding:26px 24px;
+  }
+  .fact .num{
+    font-family:'Bricolage Grotesque',sans-serif;font-weight:800;
+    font-size:2rem;color:var(--pine);line-height:1;margin-bottom:8px;
+  }
+  .fact h3{font-size:1.02rem;font-weight:600;margin-bottom:6px}
+  .fact p{font-size:.92rem;color:#4A5751}
+
+  /* ---------- Standorte ---------- */
+  .locations{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:18px}
+  .loc{
+    background:var(--white);border:1.5px solid var(--line);border-radius:16px;
+    padding:30px 26px;position:relative;
+  }
+  .loc.live{border-color:var(--pine)}
+  .loc .status{
+    display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:.7rem;
+    letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:4px;
+    margin-bottom:16px;font-weight:500;
+  }
+  .loc.live .status{background:var(--signal);color:var(--ink)}
+  .loc.planned .status{background:var(--line);color:#4A5751}
+  .loc h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.35rem;margin-bottom:8px}
+  .loc p{font-size:.95rem;color:#4A5751;margin-bottom:0}
+  .loc ul{list-style:none;margin-top:14px}
+  .loc li{padding:6px 0 6px 24px;position:relative;font-size:.92rem;color:#3C4A44}
+  .loc li::before{content:"·";position:absolute;left:8px;color:var(--leaf);font-weight:700;font-size:1.3rem;line-height:1}
+
+  /* ---------- Pricing ---------- */
+  .pricing{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:8px}
+  .plan{
+    border:1.5px solid var(--line);border-radius:16px;padding:30px 26px;
+    display:flex;flex-direction:column;background:var(--paper);position:relative;
+  }
+  .plan.featured{border-color:var(--pine);background:var(--white);box-shadow:0 8px 30px rgba(30,77,62,.10)}
+  .plan .badge{
+    position:absolute;top:-13px;left:24px;background:var(--signal);color:var(--ink);
+    font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;
+    padding:4px 10px;border-radius:4px;font-weight:500;
+  }
+  .plan h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.2rem;margin-bottom:4px}
+  .plan .price{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:2.3rem;color:var(--pine);margin:10px 0 2px}
+  .plan .per{font-size:.85rem;color:#5B6962;margin-bottom:18px}
+  .plan ul{list-style:none;margin-bottom:24px;flex:1}
+  .plan li{padding:7px 0 7px 26px;position:relative;font-size:.94rem;border-bottom:1px dashed var(--line)}
+  .plan li:last-child{border-bottom:none}
+  .plan li::before{content:"✓";position:absolute;left:2px;color:var(--leaf);font-weight:700}
+  .plan .btn{text-align:center}
+  .pilot-note{
+    margin-top:28px;font-size:.9rem;color:#5B6962;max-width:62ch;
+    border-left:3px solid var(--signal);padding-left:14px;
+  }
+
+  /* ---------- Form ---------- */
+  .signup{padding-bottom:90px}
+  .form-card{
+    background:var(--ink);border-radius:20px;padding:44px 38px;color:var(--paper);
+    max-width:680px;margin:0 auto;
+  }
+  .form-card h2{color:var(--white);max-width:none}
+  .form-card .sub{color:#B9C8C0;margin-bottom:30px;font-size:.98rem}
+  .field{margin-bottom:20px}
+  label{display:block;font-weight:600;font-size:.92rem;margin-bottom:7px;color:var(--paper)}
+  input[type=text],input[type=email],select,textarea{
+    width:100%;padding:13px 15px;border-radius:10px;border:1px solid #3A4D45;
+    background:#20342C;color:var(--white);font-family:inherit;font-size:1rem;
+  }
+  input::placeholder,textarea::placeholder{color:#7E948A}
+  .radio-group{display:grid;gap:10px}
+  .radio-opt{
+    display:flex;align-items:center;gap:12px;background:#20342C;border:1.5px solid #3A4D45;
+    border-radius:10px;padding:13px 15px;cursor:pointer;transition:border-color .15s;
+  }
+  .radio-opt:hover{border-color:var(--leaf)}
+  .radio-opt input{accent-color:var(--signal);width:18px;height:18px;flex-shrink:0}
+  .radio-opt .opt-label{font-weight:600;font-size:.95rem}
+  .radio-opt .opt-price{margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:.85rem;color:var(--signal);white-space:nowrap}
+  .consent{display:flex;gap:11px;align-items:flex-start;font-size:.84rem;color:#B9C8C0;margin:24px 0}
+  .consent input{margin-top:3px;accent-color:var(--signal)}
+  .form-card .btn-primary{background:var(--signal);color:var(--ink);width:100%;font-size:1.05rem}
+  .form-card .btn-primary:hover{background:#FFD75A}
+  .success{
+    display:none;background:#20342C;border:1.5px solid var(--leaf);border-radius:12px;
+    padding:22px;text-align:center;font-weight:600;color:var(--white);
+  }
+
+  /* ---------- FAQ & Footer ---------- */
+  details{background:var(--white);border:1px solid var(--line);border-radius:12px;margin-bottom:10px;padding:0 22px}
+  summary{cursor:pointer;font-weight:600;padding:18px 0;list-style:none;display:flex;justify-content:space-between;align-items:center}
+  summary::after{content:"+";font-family:'Bricolage Grotesque',sans-serif;font-size:1.4rem;color:var(--leaf)}
+  details[open] summary::after{content:"–"}
+  details p{padding-bottom:18px;color:#3C4A44;font-size:.95rem}
+  footer{border-top:1px solid var(--line);padding:34px 0;font-size:.85rem;color:#5B6962}
+  footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+  footer a{color:#5B6962}
+
+  @media(max-width:640px){
+    .hero{padding:52px 0 40px}
+    .route-stops{flex-wrap:nowrap}
+    .stop .name{font-size:.78rem}
+    .stop.here .name{font-size:.88rem}
+    .stop .time{font-size:.62rem}
+    .form-card{padding:32px 22px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top">opus<span>.</span>cowork</a>
+    <a class="cta" href="#platz-sichern">Platz sichern</a>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <span class="eyebrow mono">Pilotprojekt · Osthofen &amp; Worms</span>
+    <h1>Arbeiten, wo du wohnst. <em>Nicht am Küchentisch.</em></h1>
+    <p class="lead">
+      Opus Cowork bringt professionelle Arbeitsplätze nach Rheinhessen: Der Pilot-Space
+      in Osthofen steht bereit – 100&nbsp;qm helles Großraumbüro mit Gigabit-Internet und
+      Küche, 10 Gehminuten vom Bahnhof. Ein zweiter Standort in Worms ist in Planung.
+      Sag uns, wo du arbeiten willst – du entscheidest mit, wo es losgeht.
+    </p>
+    <div class="hero-ctas">
+      <a class="btn btn-primary" href="#platz-sichern">Unverbindlich Platz sichern</a>
+      <a class="btn btn-ghost" href="#raum">Den Raum ansehen</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SIGNATURE: ROUTE ============ -->
+<section class="route">
+  <div class="wrap">
+    <div class="route-card">
+      <span class="mono">Linie RB / S-Bahn · Haltestelle Osthofen</span>
+      <div class="route-line">
+        <div class="route-track"></div>
+        <div class="route-stops">
+          <div class="stop"><div class="dot"></div><div class="name">Mainz Hbf</div><div class="time">~35 Min</div></div>
+          <div class="stop"><div class="dot"></div><div class="name">Worms Hbf</div><div class="time">~6 Min</div></div>
+          <div class="stop here"><div class="dot"></div><div class="name">Osthofen</div><div class="time">Du bist hier</div></div>
+          <div class="stop"><div class="dot"></div><div class="name">Ludwigshafen</div><div class="time">~25 Min</div></div>
+          <div class="stop"><div class="dot"></div><div class="name">Mannheim Hbf</div><div class="time">~30 Min</div></div>
+        </div>
+      </div>
+      <p class="route-foot">Vom Bahnhof Osthofen sind es <strong>10 Minuten zu Fuß</strong> bis zu deinem Schreibtisch.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RAUM ============ -->
+<section id="raum">
+  <div class="wrap">
+    <span class="sec-label mono">Der Raum</span>
+    <h2>Alles, was ein gutes Büro braucht. Ohne den Arbeitsweg.</h2>
+    <p class="sec-intro">
+      Kein anonymes Bürocenter, sondern ein fester Ort für Menschen aus Osthofen
+      und Umgebung, die remote arbeiten – und trotzdem Struktur, Ruhe und Kolleg:innen
+      auf Zeit wollen.
+    </p>
+    <div class="facts">
+      <div class="fact"><div class="num">100&nbsp;qm</div><h3>Großraumbüro</h3><p>Helle Fläche mit festen und flexiblen Arbeitsplätzen – Platz zum Denken statt Enge.</p></div>
+      <div class="fact"><div class="num">1&nbsp;Gbit/s</div><h3>Schnelles Internet</h3><p>Stabiles, schnelles WLAN und LAN – Videocalls und große Uploads laufen einfach.</p></div>
+      <div class="fact"><div class="num">☕</div><h3>Küche inklusive</h3><p>Voll ausgestattete Küche für Kaffee, Mittagspause und das Gespräch zwischendurch.</p></div>
+      <div class="fact"><div class="num">10&nbsp;Min</div><h3>Vom Bahnhof</h3><p>Fußläufig vom S-Bahnhof Osthofen – perfekt für alle ohne Auto oder mit Pendel-Vergangenheit.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STANDORTE ============ -->
+<section id="standorte" style="padding-top:0">
+  <div class="wrap">
+    <span class="sec-label mono">Standorte</span>
+    <h2>Zwei Standorte. Du entscheidest mit, wo es losgeht.</h2>
+    <p class="sec-intro">
+      Wir wollen Coworking dorthin bringen, wo der Bedarf am größten ist.
+      Im Formular sagst du uns, welcher Standort für dich passt – danach richten
+      wir uns beim Start.
+    </p>
+    <div class="locations">
+      <div class="loc live">
+        <span class="status">Pilotraum gesichert</span>
+        <h3>Osthofen</h3>
+        <p>Der Raum steht bereit und kann kurzfristig starten – sobald genügend Vormerkungen zusammenkommen.</p>
+        <ul>
+          <li>100 qm Großraumbüro mit Küche und WC</li>
+          <li>Gigabit-Internet</li>
+          <li>10 Gehminuten vom Bahnhof Osthofen</li>
+        </ul>
+      </div>
+      <div class="loc planned">
+        <span class="status">Objekt in Aussicht</span>
+        <h3>Worms</h3>
+        <p>Für Worms haben wir ein passendes Objekt in Aussicht. Ob und wann wir dort eröffnen, hängt direkt von eurem Interesse ab.</p>
+        <ul>
+          <li>Größere Stadt, mehr Anbindung</li>
+          <li>Details folgen mit deiner Vormerkung</li>
+          <li>Dein Votum zählt: Trag dich ein und stimme ab</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section class="pricing" id="tarife">
+  <div class="wrap">
+    <span class="sec-label mono">Tarife im Pilot</span>
+    <h2>Faire Preise. Monatlich kündbar.</h2>
+    <p class="sec-intro">
+      Für den Pilotbetrieb starten wir mit drei einfachen Modellen.
+      Alle Tarife sind monatlich kündbar – kein Risiko, keine Knebelverträge.
+    </p>
+    <div class="plans">
+      <div class="plan">
+        <h3>Flex Desk</h3>
+        <div class="price">199&nbsp;€</div>
+        <div class="per">pro Monat, zzgl. MwSt. · monatlich kündbar</div>
+        <ul>
+          <li>Freie Platzwahl im Großraumbüro</li>
+          <li>Zugang Mo–Fr, 7–20 Uhr</li>
+          <li>Gigabit-WLAN &amp; Drucker</li>
+          <li>Küche, Kaffee &amp; Wasser inklusive</li>
+        </ul>
+        <a class="btn btn-primary" href="#platz-sichern" data-plan="flex">Flex Desk vormerken</a>
+      </div>
+      <div class="plan featured">
+        <span class="badge">Beliebteste Wahl</span>
+        <h3>Fester Schreibtisch</h3>
+        <div class="price">259&nbsp;€</div>
+        <div class="per">pro Monat, zzgl. MwSt. · monatlich kündbar</div>
+        <ul>
+          <li>Dein eigener, fester Arbeitsplatz</li>
+          <li>Zugang rund um die Uhr (24/7)</li>
+          <li>Monitor &amp; abschließbarer Rollcontainer</li>
+          <li>Gigabit-WLAN, Küche &amp; Kaffee inklusive</li>
+          <li>Postadresse auf Anfrage</li>
+        </ul>
+        <a class="btn btn-primary" href="#platz-sichern" data-plan="fix">Festen Platz vormerken</a>
+      </div>
+      <div class="plan">
+        <h3>Founding Member</h3>
+        <div class="price">299&nbsp;€</div>
+        <div class="per">pro Monat, zzgl. MwSt. · Preis 12 Monate garantiert</div>
+        <ul>
+          <li>Alles aus „Fester Schreibtisch"</li>
+          <li>Mitsprache bei Ausstattung &amp; Regeln</li>
+          <li>Name an der Gründerwand</li>
+          <li>2 Gästetage pro Monat inklusive</li>
+        </ul>
+        <a class="btn btn-primary" href="#platz-sichern" data-plan="founding">Founding Member werden</a>
+      </div>
+    </div>
+    <p class="pilot-note">
+      <strong>Pilotphase:</strong> Wir starten mit maximal 12 Plätzen. Deine Vormerkung ist
+      unverbindlich und kostenlos – wir melden uns vor dem Start persönlich bei dir.
+    </p>
+  </div>
+</section>
+
+<!-- ============ FORM ============ -->
+<section class="signup" id="platz-sichern">
+  <div class="wrap">
+    <div class="form-card">
+      <span class="mono" style="color:var(--signal);display:block;margin-bottom:14px">Unverbindliche Vormerkung</span>
+      <h2>Sichere dir einen der 12 Pilot-Plätze.</h2>
+      <p class="sub">Kostenlos und ohne Verpflichtung. Wir melden uns persönlich, sobald der Starttermin feststeht.</p>
+
+      <form id="leadform" action="https://formspree.io/f/DEINE_FORM_ID" method="POST">
+        <div class="field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Vor- und Nachname" required>
+        </div>
+        <div class="field">
+          <label for="email">E-Mail</label>
+          <input type="email" id="email" name="email" placeholder="du@beispiel.de" required>
+        </div>
+        <div class="field">
+          <label>Welcher Standort passt für dich?</label>
+          <div class="radio-group">
+            <label class="radio-opt"><input type="radio" name="standort" value="Osthofen" required><span class="opt-label">Osthofen</span><span class="opt-price">Pilotraum bereit</span></label>
+            <label class="radio-opt"><input type="radio" name="standort" value="Worms"><span class="opt-label">Worms</span><span class="opt-price">In Planung</span></label>
+            <label class="radio-opt"><input type="radio" name="standort" value="Beide / flexibel"><span class="opt-label">Beide wären für mich erreichbar</span><span class="opt-price">–</span></label>
+          </div>
+        </div>
+        <div class="field">
+          <label>Welcher Tarif interessiert dich?</label>
+          <div class="radio-group">
+            <label class="radio-opt"><input type="radio" name="tarif" value="Flex Desk – 199 €" required><span class="opt-label">Flex Desk</span><span class="opt-price">199 €/Monat</span></label>
+            <label class="radio-opt"><input type="radio" name="tarif" value="Fester Schreibtisch – 259 €"><span class="opt-label">Fester Schreibtisch</span><span class="opt-price">259 €/Monat</span></label>
+            <label class="radio-opt"><input type="radio" name="tarif" value="Founding Member – 299 €"><span class="opt-label">Founding Member</span><span class="opt-price">299 €/Monat</span></label>
+            <label class="radio-opt"><input type="radio" name="tarif" value="Noch unsicher"><span class="opt-label">Bin noch unsicher</span><span class="opt-price">–</span></label>
+          </div>
+        </div>
+        <div class="field">
+          <label for="start">Wann würdest du starten wollen?</label>
+          <select id="start" name="startzeitpunkt">
+            <option>Sofort zum Start des Piloten</option>
+            <option>In 1–3 Monaten</option>
+            <option>In 3–6 Monaten</option>
+            <option>Weiß ich noch nicht</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="msg">Was sollten wir noch wissen? (optional)</label>
+          <textarea id="msg" name="nachricht" rows="3" placeholder="z. B. dein Beruf, Wünsche an den Raum, Fragen …"></textarea>
+        </div>
+        <label class="consent">
+          <input type="checkbox" required>
+          <span>Ich bin einverstanden, dass meine Angaben zur Kontaktaufnahme gespeichert werden. Hinweise in der <a href="#" style="color:var(--signal)">Datenschutzerklärung</a>. Abmeldung jederzeit möglich.</span>
+        </label>
+        <button type="submit" class="btn btn-primary">Jetzt unverbindlich vormerken</button>
+      </form>
+
+      <div class="success" id="success">
+        ✓ Danke! Deine Vormerkung ist eingegangen.<br>Wir melden uns persönlich bei dir.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq" style="padding-top:0">
+  <div class="wrap">
+    <span class="sec-label mono">Häufige Fragen</span>
+    <h2>Gut zu wissen.</h2>
+    <details>
+      <summary>Ist die Vormerkung wirklich unverbindlich?</summary>
+      <p>Ja. Du gehst keinerlei Verpflichtung ein. Die Vormerkung hilft uns zu verstehen, wie groß das Interesse ist – und sichert dir einen der ersten Plätze, falls du dabei sein willst.</p>
+    </details>
+    <details>
+      <summary>Wann startet der Pilot?</summary>
+      <p>Sobald genügend Vormerkungen zusammenkommen, legen wir den Starttermin fest und informieren alle Interessierten persönlich – voraussichtlich innerhalb der nächsten Wochen.</p>
+    </details>
+    <details>
+      <summary>Was ist der Unterschied zwischen Osthofen und Worms?</summary>
+      <p>In Osthofen steht der Raum bereits fest und kann kurzfristig öffnen. Für Worms haben wir ein Objekt in Aussicht – ob wir es anmieten, entscheidet sich anhand der Vormerkungen. Mit deiner Standortwahl im Formular stimmst du also direkt mit ab.</p>
+    </details>
+    <details>
+      <summary>Kann ich den Raum vorher besichtigen?</summary>
+      <p>Sehr gern. Schreib uns einfach eine Nachricht über das Formular, und wir vereinbaren einen Termin zur Besichtigung.</p>
+    </details>
+    <details>
+      <summary>Gibt es auch Tagespässe?</summary>
+      <p>Im Pilot konzentrieren wir uns zunächst auf Monatsmitgliedschaften. Wenn es Nachfrage nach Tagespässen gibt, schreib uns das gern ins Formular – wir richten uns nach euch.</p>
+    </details>
+    <details>
+      <summary>Was passiert mit meinen Daten?</summary>
+      <p>Wir nutzen deine Angaben ausschließlich, um dich zum Coworking-Pilot zu kontaktieren. Keine Weitergabe an Dritte, Löschung jederzeit auf Wunsch.</p>
+    </details>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 Opus Cowork · Osthofen &amp; Worms</div>
+    <div><a href="#">Impressum</a> &nbsp;·&nbsp; <a href="#">Datenschutz</a></div>
+  </div>
+</footer>
+
+<script>
+  // Tarif-Buttons wählen den passenden Radio-Button im Formular vor
+  document.querySelectorAll('[data-plan]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var map = {flex:'Flex Desk – 199 €', fix:'Fester Schreibtisch – 259 €', founding:'Founding Member – 299 €'};
+      var val = map[btn.dataset.plan];
+      var radio = document.querySelector('input[name="tarif"][value="' + val + '"]');
+      if(radio) radio.checked = true;
+    });
+  });
+
+  // Formular per AJAX an Formspree senden, Erfolgsmeldung anzeigen
+  var form = document.getElementById('leadform');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var data = new FormData(form);
+    fetch(form.action, {
+      method:'POST',
+      body:data,
+      headers:{'Accept':'application/json'}
+    }).then(function(res){
+      if(res.ok){
+        form.style.display = 'none';
+        document.getElementById('success').style.display = 'block';
+      } else {
+        alert('Senden hat nicht geklappt. Bitte prüfe die Formular-ID (Formspree) oder versuche es später erneut.');
+      }
+    }).catch(function(){
+      alert('Senden hat nicht geklappt. Bitte versuche es später erneut.');
+    });
+  });
+</script>
+</body>
+</html>
