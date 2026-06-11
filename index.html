@@ -5,9 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Opus Cowork – Coworking Space in Osthofen & Worms | Platz vormerken</title>
 <meta name="description" content="Coworking in Rheinhessen: Pilot-Space in Osthofen (100 qm, Gigabit-Internet, 10 Min vom Bahnhof), zweiter Standort in Worms in Planung. Jetzt unverbindlich Platz vormerken und mitentscheiden.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
     --paper:#F3F5F0;
@@ -17,6 +14,9 @@
     --signal:#F2C230;
     --line:#D8DDD4;
     --white:#FFFFFF;
+    --font-display:'Avenir Next','Helvetica Neue','Segoe UI',system-ui,sans-serif;
+    --font-body:system-ui,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+    --font-mono:ui-monospace,'SF Mono','Cascadia Mono',Menlo,Consolas,monospace;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
@@ -25,14 +25,14 @@
     *,*::before,*::after{animation:none!important;transition:none!important}
   }
   body{
-    font-family:'Instrument Sans',system-ui,sans-serif;
+    font-family:var(--font-body);
     background:var(--paper);
     color:var(--ink);
     line-height:1.6;
     font-size:17px;
   }
   .wrap{max-width:1060px;margin:0 auto;padding:0 24px}
-  .mono{font-family:'IBM Plex Mono',monospace;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}
+  .mono{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}
 
   /* ---------- Header ---------- */
   header{
@@ -41,7 +41,7 @@
     border-bottom:1px solid var(--line);
   }
   .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
-  .logo{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.25rem;color:var(--ink);text-decoration:none}
+  .logo{font-family:var(--font-display);font-weight:800;font-size:1.25rem;color:var(--ink);text-decoration:none}
   .logo span{color:var(--leaf)}
   .nav a.cta{
     background:var(--ink);color:var(--white);text-decoration:none;
@@ -60,7 +60,7 @@
     padding:5px 12px;border-radius:4px;font-weight:500;margin-bottom:22px;
   }
   h1{
-    font-family:'Bricolage Grotesque',sans-serif;font-weight:800;
+    font-family:var(--font-display);font-weight:800;
     font-size:clamp(2.3rem,5.4vw,4rem);line-height:1.05;letter-spacing:-.01em;
     max-width:15ch;
   }
@@ -90,8 +90,8 @@
   .stop .dot{width:18px;height:18px;border-radius:50%;background:var(--paper);border:4px solid var(--leaf);z-index:1}
   .stop.here .dot{background:var(--signal);border-color:var(--signal);width:22px;height:22px;margin-top:-2px}
   .stop .name{font-weight:600;font-size:.95rem;text-align:center}
-  .stop.here .name{color:var(--signal);font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.05rem}
-  .stop .time{font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:#9DB3A8;text-align:center}
+  .stop.here .name{color:var(--signal);font-family:var(--font-display);font-weight:800;font-size:1.05rem}
+  .stop .time{font-family:var(--font-mono);font-size:.72rem;color:#9DB3A8;text-align:center}
   .route-foot{margin-top:26px;font-size:.95rem;color:#C4D1C9;text-align:center}
   .route-foot strong{color:var(--signal)}
 
@@ -99,7 +99,7 @@
   section{padding:64px 0}
   .sec-label{color:var(--leaf);margin-bottom:12px;display:block}
   h2{
-    font-family:'Bricolage Grotesque',sans-serif;font-weight:700;
+    font-family:var(--font-display);font-weight:700;
     font-size:clamp(1.7rem,3.4vw,2.4rem);line-height:1.15;letter-spacing:-.01em;
     max-width:24ch;margin-bottom:18px;
   }
@@ -112,7 +112,7 @@
     padding:26px 24px;
   }
   .fact .num{
-    font-family:'Bricolage Grotesque',sans-serif;font-weight:800;
+    font-family:var(--font-display);font-weight:800;
     font-size:2rem;color:var(--pine);line-height:1;margin-bottom:8px;
   }
   .fact h3{font-size:1.02rem;font-weight:600;margin-bottom:6px}
@@ -126,13 +126,13 @@
   }
   .loc.live{border-color:var(--pine)}
   .loc .status{
-    display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:.7rem;
+    display:inline-block;font-family:var(--font-mono);font-size:.7rem;
     letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:4px;
     margin-bottom:16px;font-weight:500;
   }
   .loc.live .status{background:var(--signal);color:var(--ink)}
   .loc.planned .status{background:var(--line);color:#4A5751}
-  .loc h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.35rem;margin-bottom:8px}
+  .loc h3{font-family:var(--font-display);font-weight:700;font-size:1.35rem;margin-bottom:8px}
   .loc p{font-size:.95rem;color:#4A5751;margin-bottom:0}
   .loc ul{list-style:none;margin-top:14px}
   .loc li{padding:6px 0 6px 24px;position:relative;font-size:.92rem;color:#3C4A44}
@@ -148,11 +148,11 @@
   .plan.featured{border-color:var(--pine);background:var(--white);box-shadow:0 8px 30px rgba(30,77,62,.10)}
   .plan .badge{
     position:absolute;top:-13px;left:24px;background:var(--signal);color:var(--ink);
-    font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;
+    font-family:var(--font-mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;
     padding:4px 10px;border-radius:4px;font-weight:500;
   }
-  .plan h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:1.2rem;margin-bottom:4px}
-  .plan .price{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:2.3rem;color:var(--pine);margin:10px 0 2px}
+  .plan h3{font-family:var(--font-display);font-weight:700;font-size:1.2rem;margin-bottom:4px}
+  .plan .price{font-family:var(--font-display);font-weight:800;font-size:2.3rem;color:var(--pine);margin:10px 0 2px}
   .plan .per{font-size:.85rem;color:#5B6962;margin-bottom:18px}
   .plan ul{list-style:none;margin-bottom:24px;flex:1}
   .plan li{padding:7px 0 7px 26px;position:relative;font-size:.94rem;border-bottom:1px dashed var(--line)}
@@ -187,7 +187,7 @@
   .radio-opt:hover{border-color:var(--leaf)}
   .radio-opt input{accent-color:var(--signal);width:18px;height:18px;flex-shrink:0}
   .radio-opt .opt-label{font-weight:600;font-size:.95rem}
-  .radio-opt .opt-price{margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:.85rem;color:var(--signal);white-space:nowrap}
+  .radio-opt .opt-price{margin-left:auto;font-family:var(--font-mono);font-size:.85rem;color:var(--signal);white-space:nowrap}
   .consent{display:flex;gap:11px;align-items:flex-start;font-size:.84rem;color:#B9C8C0;margin:24px 0}
   .consent input{margin-top:3px;accent-color:var(--signal)}
   .form-card .btn-primary{background:var(--signal);color:var(--ink);width:100%;font-size:1.05rem}
@@ -200,12 +200,23 @@
   /* ---------- FAQ & Footer ---------- */
   details{background:var(--white);border:1px solid var(--line);border-radius:12px;margin-bottom:10px;padding:0 22px}
   summary{cursor:pointer;font-weight:600;padding:18px 0;list-style:none;display:flex;justify-content:space-between;align-items:center}
-  summary::after{content:"+";font-family:'Bricolage Grotesque',sans-serif;font-size:1.4rem;color:var(--leaf)}
+  summary::after{content:"+";font-family:var(--font-display);font-size:1.4rem;color:var(--leaf)}
   details[open] summary::after{content:"–"}
   details p{padding-bottom:18px;color:#3C4A44;font-size:.95rem}
   footer{border-top:1px solid var(--line);padding:34px 0;font-size:.85rem;color:#5B6962}
   footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   footer a{color:#5B6962}
+
+  /* ---------- Rechtliches (Impressum / Datenschutz) ---------- */
+  .legal{display:none;padding:64px 0;border-top:1px solid var(--line);background:var(--white)}
+  .legal:target{display:block}
+  .legal .wrap{max-width:760px}
+  .legal h2{margin-bottom:26px}
+  .legal h3{font-family:var(--font-display);font-weight:700;font-size:1.08rem;margin:26px 0 8px}
+  .legal p{font-size:.95rem;color:#3C4A44;margin-bottom:12px}
+  .legal ul{margin:0 0 12px 20px;font-size:.95rem;color:#3C4A44}
+  .legal .close{display:inline-block;margin-top:28px;font-weight:600;color:var(--pine);text-decoration:none;border:1.5px solid var(--pine);border-radius:999px;padding:10px 20px}
+  .legal .close:hover{background:var(--pine);color:var(--white)}
 
   @media(max-width:640px){
     .hero{padding:52px 0 40px}
@@ -423,7 +434,7 @@
         </div>
         <label class="consent">
           <input type="checkbox" required>
-          <span>Ich bin einverstanden, dass meine Angaben zur Kontaktaufnahme gespeichert werden. Hinweise in der <a href="#" style="color:var(--signal)">Datenschutzerklärung</a>. Abmeldung jederzeit möglich.</span>
+          <span>Ich bin einverstanden, dass meine Angaben zur Kontaktaufnahme gespeichert werden. Hinweise in der <a href="#datenschutz" style="color:var(--signal)">Datenschutzerklärung</a>. Abmeldung jederzeit möglich.</span>
         </label>
         <button type="submit" class="btn btn-primary">Jetzt unverbindlich vormerken</button>
       </form>
@@ -467,10 +478,91 @@
   </div>
 </section>
 
+<!-- ============ IMPRESSUM ============ -->
+<section class="legal" id="impressum">
+  <div class="wrap">
+    <span class="sec-label mono">Rechtliches</span>
+    <h2>Impressum</h2>
+    <h3>Angaben gemäß § 5 DDG</h3>
+    <p>
+      WMGT GmbH<br>
+      Wormser Weg 17<br>
+      D-67574 Osthofen, Alzey-Worms<br>
+      Deutschland
+    </p>
+    <h3>Kontakt</h3>
+    <p>
+      Telefon: +49 6242 8162657<br>
+      E-Mail: office@weningergroup.com
+    </p>
+    <h3>Vertreten durch</h3>
+    <p>Geschäftsführer: Daniel Weninger</p>
+    <h3>Registereintrag</h3>
+    <p>
+      Registergericht: Amtsgericht Mainz<br>
+      Registernummer: HRB 41291
+    </p>
+    <h3>Umsatzsteuer-ID</h3>
+    <p>Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br>DE247222922</p>
+    <h3>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h3>
+    <p>Daniel Weninger, Wormser Weg 17, D-67574 Osthofen</p>
+    <a class="close" href="#top">← Zurück zur Seite</a>
+  </div>
+</section>
+
+<!-- ============ DATENSCHUTZ ============ -->
+<section class="legal" id="datenschutz">
+  <div class="wrap">
+    <span class="sec-label mono">Rechtliches</span>
+    <h2>Datenschutzerklärung</h2>
+
+    <h3>1. Verantwortlicher</h3>
+    <p>
+      Verantwortlicher im Sinne der Datenschutz-Grundverordnung (DSGVO) ist:<br><br>
+      WMGT GmbH<br>
+      Wormser Weg 17<br>
+      D-67574 Osthofen<br>
+      Telefon: +49 6242 8162657<br>
+      E-Mail: office@weningergroup.com
+    </p>
+
+    <h3>2. Allgemeine Hinweise</h3>
+    <p>Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend den gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung. Diese Website verwendet keine Cookies zu Analyse- oder Werbezwecken und bindet keine Schriftarten oder Inhalte von Drittanbietern wie Google ein.</p>
+
+    <h3>3. Hosting und Server-Logfiles</h3>
+    <p>Beim Aufruf dieser Website erhebt der Hosting-Anbieter automatisch Informationen in sogenannten Server-Logfiles, die Ihr Browser automatisch übermittelt (z. B. IP-Adresse, Datum und Uhrzeit des Zugriffs, Browsertyp, Betriebssystem). Diese Daten dienen der Sicherstellung eines störungsfreien Betriebs und der Verbesserung unseres Angebots. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der sicheren Bereitstellung der Website).</p>
+
+    <h3>4. Vormerk-Formular (Formspree)</h3>
+    <p>Wenn Sie das Vormerk-Formular nutzen, werden die von Ihnen eingegebenen Daten (Name, E-Mail-Adresse, Standort- und Tarifinteresse, gewünschter Startzeitpunkt, optionale Nachricht) an uns übermittelt und gespeichert, um Sie zum Coworking-Angebot zu kontaktieren. Rechtsgrundlage ist Ihre Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO. Sie können diese Einwilligung jederzeit formlos widerrufen, z. B. per E-Mail an office@weningergroup.com.</p>
+    <p>Für die technische Übermittlung des Formulars nutzen wir den Dienst Formspree der Formspree, Inc. (USA). Dabei werden die Formulardaten auf Servern von Formspree verarbeitet; eine Übermittlung in die USA ist möglich. Formspree hat sich zur Einhaltung des EU-U.S. Data Privacy Framework verpflichtet. Weitere Informationen finden Sie in der Datenschutzerklärung von Formspree unter formspree.io/legal/privacy-policy.</p>
+
+    <h3>5. Speicherdauer</h3>
+    <p>Wir speichern Ihre Formulardaten nur so lange, wie es für die Kontaktaufnahme und die Durchführung des Coworking-Piloten erforderlich ist. Kommt keine Mitgliedschaft zustande, löschen wir Ihre Daten spätestens sechs Monate nach Abschluss der Pilotphase, sofern keine gesetzlichen Aufbewahrungspflichten entgegenstehen.</p>
+
+    <h3>6. Ihre Rechte</h3>
+    <p>Sie haben jederzeit das Recht auf:</p>
+    <ul>
+      <li>Auskunft über Ihre bei uns gespeicherten Daten (Art. 15 DSGVO)</li>
+      <li>Berichtigung unrichtiger Daten (Art. 16 DSGVO)</li>
+      <li>Löschung Ihrer Daten (Art. 17 DSGVO)</li>
+      <li>Einschränkung der Verarbeitung (Art. 18 DSGVO)</li>
+      <li>Datenübertragbarkeit (Art. 20 DSGVO)</li>
+      <li>Widerspruch gegen die Verarbeitung (Art. 21 DSGVO)</li>
+      <li>Widerruf erteilter Einwilligungen mit Wirkung für die Zukunft (Art. 7 Abs. 3 DSGVO)</li>
+    </ul>
+    <p>Zudem haben Sie das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren. Zuständig ist der Landesbeauftragte für den Datenschutz und die Informationsfreiheit Rheinland-Pfalz.</p>
+
+    <h3>7. SSL-Verschlüsselung</h3>
+    <p>Diese Seite nutzt aus Sicherheitsgründen eine SSL- bzw. TLS-Verschlüsselung. Daten, die Sie über das Formular an uns übermitteln, können von Dritten nicht mitgelesen werden.</p>
+
+    <a class="close" href="#top">← Zurück zur Seite</a>
+  </div>
+</section>
+
 <footer>
   <div class="wrap">
-    <div>© 2026 Opus Cowork · Osthofen &amp; Worms</div>
-    <div><a href="#">Impressum</a> &nbsp;·&nbsp; <a href="#">Datenschutz</a></div>
+    <div>© 2026 Opus Cowork · ein Angebot der WMGT GmbH · Osthofen &amp; Worms</div>
+    <div><a href="#impressum">Impressum</a> &nbsp;·&nbsp; <a href="#datenschutz">Datenschutz</a></div>
   </div>
 </footer>
 
